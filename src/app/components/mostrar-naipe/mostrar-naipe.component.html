@@ -1,0 +1,37 @@
+<h1 style="text-align: center;">Generador de Naipes Franceses</h1>
+<div class="d-flex justify-content-center h-100 animated fadeInLeft">
+    <img src="../../../assets/palos/chica1.png" class="rounded float-left" alt="..." style="width: 13%;">
+    <div class=" card ">
+        <div class="card-body ">
+
+            <div class="text-center">
+                <img src="../../../assets/palos/logopalos.png " class="rounded " alt="... " style="width: 70% ">
+            </div>
+
+            <div class="input-group form-group ">
+                <div class="input-group-prepend ">
+                    <span (click)="generarNumero()" class="input-group-text "><i  class="fas fa-random random"></i></span>
+                </div>
+
+                <input type="number" class="form-control " [(ngModel)]="numeroIntroducido" (keyup.enter)="generarNaipes()">
+            </div>
+
+            <div class="form-group ">
+                <button type="button " (click)="generarNaipes()" class="btn btn-outline-danger btn-block "> Generar Cartas</button>
+            </div>
+
+        </div>
+
+    </div>
+    <img src="../../../assets/palos/chica2.png" class="rounded float-right" alt="..." style="width: 13%;">
+</div>
+
+
+<div class="card-group m-5">
+
+    <app-naipe *ngFor="let naipe of arrayNaipes " class="animated flipInY"></app-naipe>
+    <!-- <app-naipe *ngFor="let naipe of arrayNaipes " class="animated flipOutY "></app-naipe> -->
+
+
+
+</div>

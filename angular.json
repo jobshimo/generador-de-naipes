@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "generadorNaipes"
+    }
+  },
+  "defaultProject": "generadorNaipes",
+  "cli": {
+    "analytics": "62e2f870-0fae-4de4-9701-215f5a28f922"
+  }
 }
