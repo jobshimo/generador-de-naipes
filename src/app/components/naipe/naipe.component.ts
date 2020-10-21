@@ -24,16 +24,25 @@ export class NaipeComponent implements OnInit {
   constructor() {
     const RANDOMNUMBER: number = Math.floor(Math.random() * (14 - 1) + 1);
     const RANDOMPALO: number = Math.floor(Math.random() * (5 - 1) + 1);
-    const RANDOMTEXTURA: number = Math.floor(Math.random() * (13 - 1) + 1);
+    const RANDOMTEXTURA: number = Math.floor(Math.random() * (18 - 1) + 1);
+    const DROP: number = Math.floor(Math.random() * (101 - 1) + 1);
     this.valorNaipe = RANDOMNUMBER;
     this.paloNaipe = RANDOMPALO;
-    this.valorTextura = RANDOMTEXTURA;
+    if (DROP >= 70) {
+      this.valorTextura = RANDOMTEXTURA;
+    } else {
+      this.textura = '../../../assets/palos/textura18.png';
+    }
   }
 
   ngOnInit(): void {
     this.getStringValor();
     this.getPalo();
-    this.getTextura();
+    if (this.textura === '../../../assets/palos/textura18.png') {
+      return;
+    } else {
+      this.getTextura();
+    }
   }
 
   // Metodos:
@@ -58,6 +67,12 @@ export class NaipeComponent implements OnInit {
     const TEXTURA10 = '../../../assets/palos/textura11.png';
     const TEXTURA11 = '../../../assets/palos/textura12.png';
     const TEXTURA12 = '../../../assets/palos/textura13.png';
+    const TEXTURA13 = '../../../assets/palos/textura14.png';
+    const TEXTURA14 = '../../../assets/palos/textura15.png';
+    const TEXTURA15 = '../../../assets/palos/textura16.png';
+    const TEXTURA16 = '../../../assets/palos/textura17.png';
+    const TEXTURA17 = '../../../assets/palos/textura19.png';
+    // const TEXTURA18 = '../../../assets/palos/textura18.png';
 
     switch (this.valorTextura) {
       case 1:
@@ -95,6 +110,21 @@ export class NaipeComponent implements OnInit {
         break;
       case 12:
         this.textura = TEXTURA12;
+        break;
+      case 13:
+        this.textura = TEXTURA13;
+        break;
+      case 14:
+        this.textura = TEXTURA14;
+        break;
+      case 15:
+        this.textura = TEXTURA15;
+        break;
+      case 16:
+        this.textura = TEXTURA16;
+        break;
+      case 17:
+        this.textura = TEXTURA17;
         break;
     }
   }
