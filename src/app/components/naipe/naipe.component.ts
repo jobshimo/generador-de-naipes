@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./naipe.component.scss'],
 })
 export class NaipeComponent implements OnInit {
-  // Variables:
   valorNaipe: number;
   stringNaipe: string;
   paloNaipe: number;
@@ -20,7 +19,6 @@ export class NaipeComponent implements OnInit {
   classDorso: string = 'card-img-top texturaDorso';
   classDelante: string = 'card naipe';
 
-  // Costructor:
   constructor() {
     const RANDOMNUMBER: number = Math.floor(Math.random() * (14 - 1) + 1);
     const RANDOMPALO: number = Math.floor(Math.random() * (5 - 1) + 1);
@@ -44,8 +42,6 @@ export class NaipeComponent implements OnInit {
       this.getTextura();
     }
   }
-
-  // Metodos:
 
   voltear() {
     const VOLTEAR = 'card-img-top texturaDorso animated flipOutY slow';
@@ -72,7 +68,6 @@ export class NaipeComponent implements OnInit {
     const TEXTURA15 = '../../../assets/palos/textura16.png';
     const TEXTURA16 = '../../../assets/palos/textura17.png';
     const TEXTURA17 = '../../../assets/palos/textura19.png';
-    // const TEXTURA18 = '../../../assets/palos/textura18.png';
 
     switch (this.valorTextura) {
       case 1:
@@ -160,7 +155,6 @@ export class NaipeComponent implements OnInit {
         this.classPalo = 'valorNaipeRojo';
         this.classPaloSub = 'subNaipeRojo';
         this.classPaloSubRotate = 'subNaipeRotateRojo';
-
         break;
     }
   }

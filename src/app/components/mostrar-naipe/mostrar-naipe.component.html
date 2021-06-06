@@ -13,7 +13,7 @@
                     <span (click)="generarNumero()" class="input-group-text "><i  class="fas fa-random random"></i></span>
                 </div>
 
-                <input type="number" class="form-control " [(ngModel)]="numeroIntroducido" (keyup.enter)="generarNaipes()">
+                <input type="number" class="form-control " placeholder="Introduzca número" max="1000" [(ngModel)]="insertNumber" (keyup.enter)="generarNaipes()">
             </div>
 
             <div class="form-group ">
@@ -26,12 +26,14 @@
     <img src="../../../assets/palos/chica2.png" class="rounded float-right" alt="..." style="width: 13%;">
 </div>
 
+<div>
 
-<div class="card-group m-5">
+    <div class="card-group m-5 groupCustom">
+        <ng-container *ngIf="arrayNaipes.length != 0"></ng-container>
 
-    <app-naipe *ngFor="let naipe of arrayNaipes " class="animated flipInY"></app-naipe>
-    <!-- <app-naipe *ngFor="let naipe of arrayNaipes " class="animated flipOutY "></app-naipe> -->
+        <app-naipe *ngFor="let naipe of arrayNaipes " class="animated flipInY"></app-naipe>
 
 
 
+    </div>
 </div>

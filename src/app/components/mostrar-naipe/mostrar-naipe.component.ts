@@ -7,42 +7,47 @@ import Swal from 'sweetalert2';
   styleUrls: ['./mostrar-naipe.component.scss'],
 })
 export class MostrarNaipeComponent {
-  //Variables:
-  numeroIntroducido: number;
+
+  insertNumber: number;
   arrayNaipes = [];
-  // --FIN VARIABLES--
 
-  constructor() {}
-
-  // Metodos:
   generarNaipes() {
-    if (this.numeroIntroducido == null) {
-      Swal.fire({
-        title: 'Por favor:',
-        text: 'Introduzca un número mayor que cero',
-        icon: 'info',
-        confirmButtonText: 'Aceptar',
-      });
+    switch (true) {
+      case this.insertNumber == null:
+        Swal.fire({
+          title: 'Valor no válido',
+          text: 'Introduzca un número mayor que cero',
+          icon: 'info',
+          confirmButtonText: 'Aceptar',
+        });
+        return
 
-      // alert('Introduzca un número mayor que cero');
-      return;
-    } else if (this.numeroIntroducido <= 0) {
+    case (this.insertNumber<= 0):
       Swal.fire({
-        title: 'Por favor:',
+        title: 'Valor no válido',
         text: 'Introduzca un número mayor que cero',
         icon: 'info',
         confirmButtonText: 'Aceptar',
       });
-      return;
+      return
+    case (this.insertNumber > 100):
+      Swal.fire({
+        title: 'Valor no válido',
+        text: 'Introduzca un número inferior a 101',
+        icon: 'info',
+        confirmButtonText: 'Aceptar',
+      });
+    return
     }
+
     this.arrayNaipes.splice(0, this.arrayNaipes.length);
     setTimeout(() => {
-      this.arrayNaipes.length = this.numeroIntroducido;
+      this.arrayNaipes.length = this.insertNumber;
     }, 1);
   }
 
   generarNumero() {
     const RANDOMNUMBER = Math.floor(Math.random() * (101 - 1) + 1);
-    this.numeroIntroducido = RANDOMNUMBER;
+    this.insertNumber = RANDOMNUMBER;
   }
 }
